@@ -1,0 +1,6 @@
+**/tmc/
+**/build/
+**/target/
+**/.idea/
+**/.tmcignore
+**/*.nb-configuration.xml
