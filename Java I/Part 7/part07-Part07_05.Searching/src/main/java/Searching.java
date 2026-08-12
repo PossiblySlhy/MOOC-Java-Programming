@@ -31,7 +31,7 @@ public class Searching {
         System.out.println("");
 
         System.out.println("");
-        System.out.println("Seaching with binary search:");
+        System.out.println("Searching with binary search:");
         start = System.currentTimeMillis();
         int binarySearchId = binarySearch(books, idToSearchFor);
         System.out.println("The search took " + (System.currentTimeMillis() - start) + " milliseconds.");
@@ -44,11 +44,32 @@ public class Searching {
     }
 
     public static int linearSearch(ArrayList<Book> books, int searchedId) {
+        for (Book book : books) {
+            if (book.getId() == searchedId) {
+                return books.indexOf(book);
+            }
+        }
+
         return -1;
     }
 
     public static int binarySearch(ArrayList<Book> books, long searchedId) {
+        int begin = 0;
+        int end = books.size() - 1;
+
+        while (begin <= end) {
+            int middle = (begin + end) / 2;
+            int indexID = books.get(middle).getId();
+
+            if (indexID == searchedId) {
+                return middle;
+            } else if (indexID < searchedId) {
+                begin = middle + 1;
+            } else {
+                end = middle - 1;
+            }
+        }
+
         return -1;
     }
 }
-
