@@ -4,3 +4,4 @@
 **/.idea/
 **/.tmcignore
 **/*.nb-configuration.xml
+.vscode/settings.json
